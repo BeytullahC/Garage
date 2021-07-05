@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "43463491-8f4d-4875-9105-cb072003eb39",
+		"name": "Garage application API",
+		"description": "Garage\nIn this problem, you have a garage that can be parked up to 10 slots (you can consider each slot is 1 unit range) at any given point in time. You should create an automated ticketing system that allows your customers to use your garage without human intervention. When a car enters your garage, you give a unique ticket issued to the driver. The ticket issuing process includes us documenting the plate and the colour of the car and allocating an available slots to the car before actually handing over a ticket to the driver. When a vehicle holds number of slots with its own width, you have to leave 1 unit slot to next one. The customer should be allocated slot(s) which is nearest to the entry. At the exit the customer returns the ticket which then marks slot(s) they were using as being available.\nCreate a spring boot project and then, publish a rest controller. Your controller methods include park, leave and status.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "(root)",
+			"item": [
+				{
+					"name": "Get Garage Status",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "deserunt in Excepteur nisi"
+						}
+					]
+				},
+				{
+					"name": "Park the vehicle in a spot (or multiple spots)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": \"sed velit quis sunt\",\n    \"licencePlate\": \"80-HKP60\",\n    \"vehicleType\": \"Jeep\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"color\": \"sed velit quis sunt\",\n    \"licencePlate\": \"80-HKP60\",\n    \"vehicleType\": \"Jeep\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "deserunt in Excepteur nisi"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "leave",
+			"item": [
+				{
+					"name": "Leave the vehicle by LicencePlate",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/leave?licencePlate=81-RKJ38",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"leave"
+							],
+							"query": [
+								{
+									"key": "licencePlate",
+									"value": "81-RKJ38",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/leave?licencePlate=81-RKJ38",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"leave"
+									],
+									"query": [
+										{
+											"key": "licencePlate",
+											"value": "81-RKJ38"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "deserunt in Excepteur nisi"
+						}
+					]
+				},
+				{
+					"name": "Leave the vehicle by parkingSpotNumber",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/leave/:parkingSpotNumber",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"leave",
+								":parkingSpotNumber"
+							],
+							"variable": [
+								{
+									"key": "parkingSpotNumber",
+									"value": "3",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "default response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/leave/:parkingSpotNumber",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"leave",
+										":parkingSpotNumber"
+									],
+									"variable": [
+										{
+											"key": "parkingSpotNumber"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "deserunt in Excepteur nisi"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Examples",
+			"item": [
+				{
+					"name": "park 34-SO-1988 Black Car",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": \"Black\",\n    \"licencePlate\": \"34-SO-1988\",\n    \"vehicleType\": \"Car\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "park 34-BO-1987 Red Truck",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": \"Red\",\n    \"licencePlate\": \"34-BO-1987\",\n    \"vehicleType\": \"Truck\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "park 34-VO-2018 Blue Jeep",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": \"Blue\",\n    \"licencePlate\": \"34-VO-2018\",\n    \"vehicleType\": \"Jeep\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "park 34-HBO-2020 Black Truck(Garage is full)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": \"Black\",\n    \"licencePlate\": \"34-HBO-2020\",\n    \"vehicleType\": \"Truck\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "leave 3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/leave/:parkingSpotNumber",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"leave",
+								":parkingSpotNumber"
+							],
+							"variable": [
+								{
+									"key": "parkingSpotNumber",
+									"value": "3",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "park 34-LO-2000 White Car",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": \"White\",\n    \"licencePlate\": \"34-LO-2000\",\n    \"vehicleType\": \"Car\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Status",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
