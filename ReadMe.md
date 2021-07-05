@@ -10,7 +10,8 @@ Raw OpenAPI 3 Doc: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/
 
 Contact Info: [beytullah.dakich@gmail.com](beytullah.dakich@gmail.com)
 
-PostMan Collection: [Postman Collectioon](https://github.com/user/repo/blob/branch/other_file.md)
+Please take a look at examples on Postman Collection.
+PostMan Collection: [Postman Collectioon](https://github.com/BeytullahC/Garage/blob/master/ReadMe.md)
 
 Version: 0.0.1-SNAPSHOT
 
